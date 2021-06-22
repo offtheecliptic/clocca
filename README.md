@@ -8,7 +8,7 @@ Why 'clocca'?  Because it is the Latin word for bell, which in earlier times was
 
 ## Motivation
 
-Why another library for dates and times? Especially when the Java/Kotlin world has settled on java.time?  Because java.time and other date/time libraries were designed to handle *every* use case related to time and calendar data management This library is intended for applications that have very simple needs.
+Why another library for dates and times? Especially when the Java/Kotlin world has settled on java.time?  Because java.time and other date/time libraries were designed to handle *every* use case related to time and calendar data management. This library is intended for applications that have very simple needs.
 
 ## Design Philosopy
 
@@ -36,26 +36,38 @@ import offtheecliptic.clocca.serde.*
 
 ## Concepts
 
-There are three types of elements which can be composed into component networks.
+These are the key concepts the library deals with.
 
     Date        - Defines a date in a calendar. 
-    Time        - Defines 
+    Time        - Defines a time on a clock.
     DateTime    - Defines a combination of a date and a time, which, when
         each is fully specified, defines a single point on a calendar timeline.
-    TimeZone    - 
+    TimeZone    - Defines a time zone for binding dates, times,and date-times to 
+        a specific longitudinal region of Earth. A time zone consists of two things: an identiifer, in the form of a TimeZoneName, and an offset from the Prime Meridian.  The latter is defined in terms of a Duration, with positive values...
+    TimeZoneName - An abstraction for dealing with time zones, consisting of a 
+        name, and abbreviation, and an optional set of locations in which the time zone is applicable.  [Maybe that shoul dbe in Time Zone, not name.]
+    Duration     - 
+    Instant      - A specific point in time, measured from a reference point.
+        The typical reference point is January 1, 1970, as measured from the Prime Meridian. This is the Unix reference point.
 
 ### Special Considerations
+
+#### Dates
 
     Partial date    - A date that does not have all the date components 
         (year, month, day).  If any of the components are not provided, the missing one or ones must be at one end of the component sequence.  
     Zoned date      - A date that is bound to a specific timezone.
+
+#### Times
+
     Partial time    - A time that does not have all the time components (
         (hour, minute, second, nanosecond).  If any of the components are not provided, the missing one or ones must be at one end of the component sequence.  For example, hour and minute can be missing, but minute alone cannot.  Similarly, second can be missing, as can second and minute, but again, ninute cannot be missing on its own.   
     Zoned time      - A time that is bound to a specific timezone.
     
+### DateTimes
 
-### Date
-
+    Partial date-time
+    Zoned date-time
 
 ## Test Cases
 
@@ -68,12 +80,11 @@ To run, can do either of these:
    kotlin -cp target/clocca-0.2.0-jar-with-dependencies.jar .....
 
 
-## Definitions
-
-
 ## Usage
 
 ## Example
+
+Coming soon
 
 ## Build
 
@@ -95,7 +106,6 @@ kotlin -cp target/clocca-0.2.0-jar-with-dependencies.jar ....
 
 ### Imports
 
-i
 #### Simple Test Cases
 
 
